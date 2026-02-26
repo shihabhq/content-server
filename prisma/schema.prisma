@@ -1,0 +1,75 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client"
+  output   = "./generated"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Video {
+  id            String     @id @default(cuid())
+  title         String
+  slug          String     @unique
+  youtubeUrl    String
+  youtubeId     String
+  description   String?
+  thumbnail     String?
+  isFeatured    Boolean    @default(false)
+  isRecommended Boolean    @default(false)
+  viewCount     Int        @default(0)
+  publishedAt   DateTime   @default(now())
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+
+  tags          VideoTag[]
+}
+
+model Artwork {
+  id          String       @id @default(cuid())
+  title       String
+  slug        String       @unique
+  content     String?
+  imageUrl    String
+  isFeatured  Boolean      @default(false)
+  isPublished Boolean      @default(true)
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  tags        ArtworkTag[]
+}
+
+model Tag {
+  id       String       @id @default(cuid())
+  name     String       @unique
+  slug     String       @unique
+
+  videos   VideoTag[]
+  artworks ArtworkTag[]
+}
+
+model VideoTag {
+  videoId String
+  tagId   String
+
+  video   Video @relation(fields: [videoId], references: [id], onDelete: Cascade)
+  tag     Tag   @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@id([videoId, tagId])
+}
+
+model ArtworkTag {
+  artworkId String
+  tagId     String
+
+  artwork   Artwork @relation(fields: [artworkId], references: [id], onDelete: Cascade)
+  tag       Tag     @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@id([artworkId, tagId])
+}
