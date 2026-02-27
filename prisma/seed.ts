@@ -1,5 +1,5 @@
-import prisma from "../src/lib/prisma";
-import { uniqueSlug } from "../src/lib/slugify";
+import prisma from "../src/lib/prisma.js";
+import { uniqueSlug } from "../src/lib/slugify.js";
 
 function extractYouTubeId(url: string): string | null {
   try {

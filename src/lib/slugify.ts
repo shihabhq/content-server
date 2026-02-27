@@ -1,5 +1,11 @@
-import slugifyLib from "slugify";
-import prisma from "./prisma";
+import slugifyModule from "slugify";
+import prisma from "./prisma.js";
+
+// ESM interop: CJS default may be at .default
+const slugifyLib =
+  typeof slugifyModule === "function"
+    ? slugifyModule
+    : (slugifyModule as { default: (s: string, o?: unknown) => string }).default;
 
 export function createSlug(text: string): string {
   return slugifyLib(text, {

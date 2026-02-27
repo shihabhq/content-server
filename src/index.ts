@@ -18,8 +18,9 @@ const app = express();
 app.use(
   cors({
     origin: [
-      "https://www.yourdomain.com",
-      "https://admin.yourdomain.com",
+      "https://www.rightscontent.com",
+      "https://admin.rightscontent.com",
+      "https://rightscontent.com",
       "http://localhost:3000",
       "http://localhost:3001",
     ],
