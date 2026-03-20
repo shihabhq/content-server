@@ -85,6 +85,8 @@ export const VideoScalarFieldEnum = {
   isFeatured: 'isFeatured',
   isRecommended: 'isRecommended',
   viewCount: 'viewCount',
+  status: 'status',
+  creatorName: 'creatorName',
   publishedAt: 'publishedAt',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'

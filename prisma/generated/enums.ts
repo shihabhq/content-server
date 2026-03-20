@@ -9,7 +9,9 @@
 * 🟢 You can import this file directly.
 */
 
+export const VideoStatus = {
+  PUBLISHED: 'PUBLISHED',
+  PENDING: 'PENDING'
+} as const
 
-
-// This file is empty because there are no enums in the schema.
-export {}
+export type VideoStatus = (typeof VideoStatus)[keyof typeof VideoStatus]

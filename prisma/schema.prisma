@@ -13,6 +13,11 @@ datasource db {
   provider = "postgresql"
 }
 
+enum VideoStatus {
+  PUBLISHED
+  PENDING
+}
+
 model Video {
   id            String     @id @default(cuid())
   title         String
@@ -24,6 +29,8 @@ model Video {
   isFeatured    Boolean    @default(false)
   isRecommended Boolean    @default(false)
   viewCount     Int        @default(0)
+  status        VideoStatus @default(PUBLISHED)
+  creatorName   String?
   publishedAt   DateTime   @default(now())
   createdAt     DateTime   @default(now())
   updatedAt     DateTime   @updatedAt

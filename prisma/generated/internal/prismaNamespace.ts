@@ -828,6 +828,8 @@ export const VideoScalarFieldEnum = {
   isFeatured: 'isFeatured',
   isRecommended: 'isRecommended',
   viewCount: 'viewCount',
+  status: 'status',
+  creatorName: 'creatorName',
   publishedAt: 'publishedAt',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
@@ -938,6 +940,20 @@ export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'In
  * Reference to a field of type 'Int[]'
  */
 export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
+    
+
+
+/**
+ * Reference to a field of type 'VideoStatus'
+ */
+export type EnumVideoStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'VideoStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'VideoStatus[]'
+ */
+export type ListEnumVideoStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'VideoStatus[]'>
     
 
 

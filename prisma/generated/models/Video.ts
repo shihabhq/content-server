@@ -45,6 +45,8 @@ export type VideoMinAggregateOutputType = {
   isFeatured: boolean | null
   isRecommended: boolean | null
   viewCount: number | null
+  status: $Enums.VideoStatus | null
+  creatorName: string | null
   publishedAt: Date | null
   createdAt: Date | null
   updatedAt: Date | null
@@ -61,6 +63,8 @@ export type VideoMaxAggregateOutputType = {
   isFeatured: boolean | null
   isRecommended: boolean | null
   viewCount: number | null
+  status: $Enums.VideoStatus | null
+  creatorName: string | null
   publishedAt: Date | null
   createdAt: Date | null
   updatedAt: Date | null
@@ -77,6 +81,8 @@ export type VideoCountAggregateOutputType = {
   isFeatured: number
   isRecommended: number
   viewCount: number
+  status: number
+  creatorName: number
   publishedAt: number
   createdAt: number
   updatedAt: number
@@ -103,6 +109,8 @@ export type VideoMinAggregateInputType = {
   isFeatured?: true
   isRecommended?: true
   viewCount?: true
+  status?: true
+  creatorName?: true
   publishedAt?: true
   createdAt?: true
   updatedAt?: true
@@ -119,6 +127,8 @@ export type VideoMaxAggregateInputType = {
   isFeatured?: true
   isRecommended?: true
   viewCount?: true
+  status?: true
+  creatorName?: true
   publishedAt?: true
   createdAt?: true
   updatedAt?: true
@@ -135,6 +145,8 @@ export type VideoCountAggregateInputType = {
   isFeatured?: true
   isRecommended?: true
   viewCount?: true
+  status?: true
+  creatorName?: true
   publishedAt?: true
   createdAt?: true
   updatedAt?: true
@@ -238,6 +250,8 @@ export type VideoGroupByOutputType = {
   isFeatured: boolean
   isRecommended: boolean
   viewCount: number
+  status: $Enums.VideoStatus
+  creatorName: string | null
   publishedAt: Date
   createdAt: Date
   updatedAt: Date
@@ -277,6 +291,8 @@ export type VideoWhereInput = {
   isFeatured?: Prisma.BoolFilter<"Video"> | boolean
   isRecommended?: Prisma.BoolFilter<"Video"> | boolean
   viewCount?: Prisma.IntFilter<"Video"> | number
+  status?: Prisma.EnumVideoStatusFilter<"Video"> | $Enums.VideoStatus
+  creatorName?: Prisma.StringNullableFilter<"Video"> | string | null
   publishedAt?: Prisma.DateTimeFilter<"Video"> | Date | string
   createdAt?: Prisma.DateTimeFilter<"Video"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Video"> | Date | string
@@ -294,6 +310,8 @@ export type VideoOrderByWithRelationInput = {
   isFeatured?: Prisma.SortOrder
   isRecommended?: Prisma.SortOrder
   viewCount?: Prisma.SortOrder
+  status?: Prisma.SortOrder
+  creatorName?: Prisma.SortOrderInput | Prisma.SortOrder
   publishedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -314,6 +332,8 @@ export type VideoWhereUniqueInput = Prisma.AtLeast<{
   isFeatured?: Prisma.BoolFilter<"Video"> | boolean
   isRecommended?: Prisma.BoolFilter<"Video"> | boolean
   viewCount?: Prisma.IntFilter<"Video"> | number
+  status?: Prisma.EnumVideoStatusFilter<"Video"> | $Enums.VideoStatus
+  creatorName?: Prisma.StringNullableFilter<"Video"> | string | null
   publishedAt?: Prisma.DateTimeFilter<"Video"> | Date | string
   createdAt?: Prisma.DateTimeFilter<"Video"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Video"> | Date | string
@@ -331,6 +351,8 @@ export type VideoOrderByWithAggregationInput = {
   isFeatured?: Prisma.SortOrder
   isRecommended?: Prisma.SortOrder
   viewCount?: Prisma.SortOrder
+  status?: Prisma.SortOrder
+  creatorName?: Prisma.SortOrderInput | Prisma.SortOrder
   publishedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -355,6 +377,8 @@ export type VideoScalarWhereWithAggregatesInput = {
   isFeatured?: Prisma.BoolWithAggregatesFilter<"Video"> | boolean
   isRecommended?: Prisma.BoolWithAggregatesFilter<"Video"> | boolean
   viewCount?: Prisma.IntWithAggregatesFilter<"Video"> | number
+  status?: Prisma.EnumVideoStatusWithAggregatesFilter<"Video"> | $Enums.VideoStatus
+  creatorName?: Prisma.StringNullableWithAggregatesFilter<"Video"> | string | null
   publishedAt?: Prisma.DateTimeWithAggregatesFilter<"Video"> | Date | string
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Video"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Video"> | Date | string
@@ -371,6 +395,8 @@ export type VideoCreateInput = {
   isFeatured?: boolean
   isRecommended?: boolean
   viewCount?: number
+  status?: $Enums.VideoStatus
+  creatorName?: string | null
   publishedAt?: Date | string
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -388,6 +414,8 @@ export type VideoUncheckedCreateInput = {
   isFeatured?: boolean
   isRecommended?: boolean
   viewCount?: number
+  status?: $Enums.VideoStatus
+  creatorName?: string | null
   publishedAt?: Date | string
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -405,6 +433,8 @@ export type VideoUpdateInput = {
   isFeatured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isRecommended?: Prisma.BoolFieldUpdateOperationsInput | boolean
   viewCount?: Prisma.IntFieldUpdateOperationsInput | number
+  status?: Prisma.EnumVideoStatusFieldUpdateOperationsInput | $Enums.VideoStatus
+  creatorName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   publishedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -422,6 +452,8 @@ export type VideoUncheckedUpdateInput = {
   isFeatured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isRecommended?: Prisma.BoolFieldUpdateOperationsInput | boolean
   viewCount?: Prisma.IntFieldUpdateOperationsInput | number
+  status?: Prisma.EnumVideoStatusFieldUpdateOperationsInput | $Enums.VideoStatus
+  creatorName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   publishedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -439,6 +471,8 @@ export type VideoCreateManyInput = {
   isFeatured?: boolean
   isRecommended?: boolean
   viewCount?: number
+  status?: $Enums.VideoStatus
+  creatorName?: string | null
   publishedAt?: Date | string
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -455,6 +489,8 @@ export type VideoUpdateManyMutationInput = {
   isFeatured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isRecommended?: Prisma.BoolFieldUpdateOperationsInput | boolean
   viewCount?: Prisma.IntFieldUpdateOperationsInput | number
+  status?: Prisma.EnumVideoStatusFieldUpdateOperationsInput | $Enums.VideoStatus
+  creatorName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   publishedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -471,6 +507,8 @@ export type VideoUncheckedUpdateManyInput = {
   isFeatured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isRecommended?: Prisma.BoolFieldUpdateOperationsInput | boolean
   viewCount?: Prisma.IntFieldUpdateOperationsInput | number
+  status?: Prisma.EnumVideoStatusFieldUpdateOperationsInput | $Enums.VideoStatus
+  creatorName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   publishedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -487,6 +525,8 @@ export type VideoCountOrderByAggregateInput = {
   isFeatured?: Prisma.SortOrder
   isRecommended?: Prisma.SortOrder
   viewCount?: Prisma.SortOrder
+  status?: Prisma.SortOrder
+  creatorName?: Prisma.SortOrder
   publishedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -507,6 +547,8 @@ export type VideoMaxOrderByAggregateInput = {
   isFeatured?: Prisma.SortOrder
   isRecommended?: Prisma.SortOrder
   viewCount?: Prisma.SortOrder
+  status?: Prisma.SortOrder
+  creatorName?: Prisma.SortOrder
   publishedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -523,6 +565,8 @@ export type VideoMinOrderByAggregateInput = {
   isFeatured?: Prisma.SortOrder
   isRecommended?: Prisma.SortOrder
   viewCount?: Prisma.SortOrder
+  status?: Prisma.SortOrder
+  creatorName?: Prisma.SortOrder
   publishedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -557,6 +601,10 @@ export type IntFieldUpdateOperationsInput = {
   divide?: number
 }
 
+export type EnumVideoStatusFieldUpdateOperationsInput = {
+  set?: $Enums.VideoStatus
+}
+
 export type DateTimeFieldUpdateOperationsInput = {
   set?: Date | string
 }
@@ -586,6 +634,8 @@ export type VideoCreateWithoutTagsInput = {
   isFeatured?: boolean
   isRecommended?: boolean
   viewCount?: number
+  status?: $Enums.VideoStatus
+  creatorName?: string | null
   publishedAt?: Date | string
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -602,6 +652,8 @@ export type VideoUncheckedCreateWithoutTagsInput = {
   isFeatured?: boolean
   isRecommended?: boolean
   viewCount?: number
+  status?: $Enums.VideoStatus
+  creatorName?: string | null
   publishedAt?: Date | string
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -634,6 +686,8 @@ export type VideoUpdateWithoutTagsInput = {
   isFeatured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isRecommended?: Prisma.BoolFieldUpdateOperationsInput | boolean
   viewCount?: Prisma.IntFieldUpdateOperationsInput | number
+  status?: Prisma.EnumVideoStatusFieldUpdateOperationsInput | $Enums.VideoStatus
+  creatorName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   publishedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -650,6 +704,8 @@ export type VideoUncheckedUpdateWithoutTagsInput = {
   isFeatured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isRecommended?: Prisma.BoolFieldUpdateOperationsInput | boolean
   viewCount?: Prisma.IntFieldUpdateOperationsInput | number
+  status?: Prisma.EnumVideoStatusFieldUpdateOperationsInput | $Enums.VideoStatus
+  creatorName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   publishedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -697,6 +753,8 @@ export type VideoSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   isFeatured?: boolean
   isRecommended?: boolean
   viewCount?: boolean
+  status?: boolean
+  creatorName?: boolean
   publishedAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
@@ -715,6 +773,8 @@ export type VideoSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   isFeatured?: boolean
   isRecommended?: boolean
   viewCount?: boolean
+  status?: boolean
+  creatorName?: boolean
   publishedAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
@@ -731,6 +791,8 @@ export type VideoSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   isFeatured?: boolean
   isRecommended?: boolean
   viewCount?: boolean
+  status?: boolean
+  creatorName?: boolean
   publishedAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
@@ -747,12 +809,14 @@ export type VideoSelectScalar = {
   isFeatured?: boolean
   isRecommended?: boolean
   viewCount?: boolean
+  status?: boolean
+  creatorName?: boolean
   publishedAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type VideoOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "title" | "slug" | "youtubeUrl" | "youtubeId" | "description" | "thumbnail" | "isFeatured" | "isRecommended" | "viewCount" | "publishedAt" | "createdAt" | "updatedAt", ExtArgs["result"]["video"]>
+export type VideoOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "title" | "slug" | "youtubeUrl" | "youtubeId" | "description" | "thumbnail" | "isFeatured" | "isRecommended" | "viewCount" | "status" | "creatorName" | "publishedAt" | "createdAt" | "updatedAt", ExtArgs["result"]["video"]>
 export type VideoInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   tags?: boolean | Prisma.Video$tagsArgs<ExtArgs>
   _count?: boolean | Prisma.VideoCountOutputTypeDefaultArgs<ExtArgs>
@@ -776,6 +840,8 @@ export type $VideoPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     isFeatured: boolean
     isRecommended: boolean
     viewCount: number
+    status: $Enums.VideoStatus
+    creatorName: string | null
     publishedAt: Date
     createdAt: Date
     updatedAt: Date
@@ -1213,6 +1279,8 @@ export interface VideoFieldRefs {
   readonly isFeatured: Prisma.FieldRef<"Video", 'Boolean'>
   readonly isRecommended: Prisma.FieldRef<"Video", 'Boolean'>
   readonly viewCount: Prisma.FieldRef<"Video", 'Int'>
+  readonly status: Prisma.FieldRef<"Video", 'VideoStatus'>
+  readonly creatorName: Prisma.FieldRef<"Video", 'String'>
   readonly publishedAt: Prisma.FieldRef<"Video", 'DateTime'>
   readonly createdAt: Prisma.FieldRef<"Video", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Video", 'DateTime'>
