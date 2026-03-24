@@ -60,6 +60,13 @@ export type IntFilter<$PrismaModel = never> = {
   not?: Prisma.NestedIntFilter<$PrismaModel> | number
 }
 
+export type EnumVideoStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.VideoStatus | Prisma.EnumVideoStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.VideoStatus[] | Prisma.ListEnumVideoStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.VideoStatus[] | Prisma.ListEnumVideoStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumVideoStatusFilter<$PrismaModel> | $Enums.VideoStatus
+}
+
 export type DateTimeFilter<$PrismaModel = never> = {
   equals?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
   in?: Date[] | string[] | Prisma.ListDateTimeFieldRefInput<$PrismaModel>
@@ -136,6 +143,16 @@ export type IntWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedIntFilter<$PrismaModel>
 }
 
+export type EnumVideoStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.VideoStatus | Prisma.EnumVideoStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.VideoStatus[] | Prisma.ListEnumVideoStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.VideoStatus[] | Prisma.ListEnumVideoStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumVideoStatusWithAggregatesFilter<$PrismaModel> | $Enums.VideoStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumVideoStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumVideoStatusFilter<$PrismaModel>
+}
+
 export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
   equals?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
   in?: Date[] | string[] | Prisma.ListDateTimeFieldRefInput<$PrismaModel>
@@ -148,6 +165,23 @@ export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedDateTimeFilter<$PrismaModel>
   _max?: Prisma.NestedDateTimeFilter<$PrismaModel>
+}
+
+export type EnumArtworkStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ArtworkStatus | Prisma.EnumArtworkStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ArtworkStatus[] | Prisma.ListEnumArtworkStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ArtworkStatus[] | Prisma.ListEnumArtworkStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumArtworkStatusFilter<$PrismaModel> | $Enums.ArtworkStatus
+}
+
+export type EnumArtworkStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ArtworkStatus | Prisma.EnumArtworkStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ArtworkStatus[] | Prisma.ListEnumArtworkStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ArtworkStatus[] | Prisma.ListEnumArtworkStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumArtworkStatusWithAggregatesFilter<$PrismaModel> | $Enums.ArtworkStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumArtworkStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumArtworkStatusFilter<$PrismaModel>
 }
 
 export type NestedStringFilter<$PrismaModel = never> = {
@@ -192,6 +226,13 @@ export type NestedIntFilter<$PrismaModel = never> = {
   gt?: number | Prisma.IntFieldRefInput<$PrismaModel>
   gte?: number | Prisma.IntFieldRefInput<$PrismaModel>
   not?: Prisma.NestedIntFilter<$PrismaModel> | number
+}
+
+export type NestedEnumVideoStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.VideoStatus | Prisma.EnumVideoStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.VideoStatus[] | Prisma.ListEnumVideoStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.VideoStatus[] | Prisma.ListEnumVideoStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumVideoStatusFilter<$PrismaModel> | $Enums.VideoStatus
 }
 
 export type NestedDateTimeFilter<$PrismaModel = never> = {
@@ -285,6 +326,16 @@ export type NestedFloatFilter<$PrismaModel = never> = {
   not?: Prisma.NestedFloatFilter<$PrismaModel> | number
 }
 
+export type NestedEnumVideoStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.VideoStatus | Prisma.EnumVideoStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.VideoStatus[] | Prisma.ListEnumVideoStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.VideoStatus[] | Prisma.ListEnumVideoStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumVideoStatusWithAggregatesFilter<$PrismaModel> | $Enums.VideoStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumVideoStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumVideoStatusFilter<$PrismaModel>
+}
+
 export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
   equals?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
   in?: Date[] | string[] | Prisma.ListDateTimeFieldRefInput<$PrismaModel>
@@ -297,6 +348,23 @@ export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedDateTimeFilter<$PrismaModel>
   _max?: Prisma.NestedDateTimeFilter<$PrismaModel>
+}
+
+export type NestedEnumArtworkStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ArtworkStatus | Prisma.EnumArtworkStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ArtworkStatus[] | Prisma.ListEnumArtworkStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ArtworkStatus[] | Prisma.ListEnumArtworkStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumArtworkStatusFilter<$PrismaModel> | $Enums.ArtworkStatus
+}
+
+export type NestedEnumArtworkStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ArtworkStatus | Prisma.EnumArtworkStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ArtworkStatus[] | Prisma.ListEnumArtworkStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ArtworkStatus[] | Prisma.ListEnumArtworkStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumArtworkStatusWithAggregatesFilter<$PrismaModel> | $Enums.ArtworkStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumArtworkStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumArtworkStatusFilter<$PrismaModel>
 }
 
 

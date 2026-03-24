@@ -13,6 +13,8 @@ const videoSchema = z.object({
   isFeatured: z.boolean().optional().default(false),
   isRecommended: z.boolean().optional().default(false),
   tagIds: z.array(z.string()).optional().default([]),
+  creatorName: z.string().optional(),
+  status: z.enum(["PUBLISHED", "PENDING"]).optional(),
 });
 
 function extractYoutubeId(url: string): string | null {
@@ -33,15 +35,20 @@ router.get("/", async (req: Request, res: Response) => {
   try {
     const page = parseInt(req.query.page as string) || 1;
     const pageSize = parseInt(req.query.pageSize as string) || 20;
+    const status = req.query.status as "PUBLISHED" | "PENDING" | undefined;
+
+    const where: any = {};
+    if (status) where.status = status;
 
     const [videos, total] = await Promise.all([
       prisma.video.findMany({
+        where,
         orderBy: { createdAt: "desc" },
         skip: (page - 1) * pageSize,
         take: pageSize,
         include: { tags: { include: { tag: true } } },
       }),
-      prisma.video.count(),
+      prisma.video.count({ where }),
     ]);
 
     res.json({ data: videos, total, page, pageSize });
@@ -96,6 +103,8 @@ router.post("/", async (req: Request, res: Response) => {
         thumbnail: parsed.data.thumbnail,
         isFeatured: parsed.data.isFeatured,
         isRecommended: parsed.data.isRecommended,
+        creatorName: parsed.data.creatorName,
+        status: parsed.data.status ?? "PUBLISHED",
         tags: {
           create: parsed.data.tagIds.map((tagId) => ({ tagId })),
         },
@@ -139,6 +148,10 @@ router.put("/:id", async (req: Request, res: Response) => {
         ...(parsed.data.title && { title: parsed.data.title }),
         ...(parsed.data.youtubeUrl && { youtubeUrl: parsed.data.youtubeUrl }),
         ...(youtubeId && { youtubeId }),
+        ...(parsed.data.creatorName !== undefined && {
+          creatorName: parsed.data.creatorName,
+        }),
+        ...(parsed.data.status && { status: parsed.data.status }),
         ...(parsed.data.description !== undefined && {
           description: parsed.data.description,
         }),

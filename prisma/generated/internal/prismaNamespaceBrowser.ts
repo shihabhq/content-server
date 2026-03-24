@@ -85,6 +85,8 @@ export const VideoScalarFieldEnum = {
   isFeatured: 'isFeatured',
   isRecommended: 'isRecommended',
   viewCount: 'viewCount',
+  status: 'status',
+  creatorName: 'creatorName',
   publishedAt: 'publishedAt',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
@@ -101,6 +103,8 @@ export const ArtworkScalarFieldEnum = {
   imageUrl: 'imageUrl',
   isFeatured: 'isFeatured',
   isPublished: 'isPublished',
+  status: 'status',
+  creatorName: 'creatorName',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
