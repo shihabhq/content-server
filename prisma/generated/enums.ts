@@ -15,3 +15,11 @@ export const VideoStatus = {
 } as const
 
 export type VideoStatus = (typeof VideoStatus)[keyof typeof VideoStatus]
+
+
+export const ArtworkStatus = {
+  PUBLISHED: 'PUBLISHED',
+  PENDING: 'PENDING'
+} as const
+
+export type ArtworkStatus = (typeof ArtworkStatus)[keyof typeof ArtworkStatus]

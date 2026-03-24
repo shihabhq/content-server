@@ -32,6 +32,8 @@ export type ArtworkMinAggregateOutputType = {
   imageUrl: string | null
   isFeatured: boolean | null
   isPublished: boolean | null
+  status: $Enums.ArtworkStatus | null
+  creatorName: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -44,6 +46,8 @@ export type ArtworkMaxAggregateOutputType = {
   imageUrl: string | null
   isFeatured: boolean | null
   isPublished: boolean | null
+  status: $Enums.ArtworkStatus | null
+  creatorName: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -56,6 +60,8 @@ export type ArtworkCountAggregateOutputType = {
   imageUrl: number
   isFeatured: number
   isPublished: number
+  status: number
+  creatorName: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -70,6 +76,8 @@ export type ArtworkMinAggregateInputType = {
   imageUrl?: true
   isFeatured?: true
   isPublished?: true
+  status?: true
+  creatorName?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -82,6 +90,8 @@ export type ArtworkMaxAggregateInputType = {
   imageUrl?: true
   isFeatured?: true
   isPublished?: true
+  status?: true
+  creatorName?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -94,6 +104,8 @@ export type ArtworkCountAggregateInputType = {
   imageUrl?: true
   isFeatured?: true
   isPublished?: true
+  status?: true
+  creatorName?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -179,6 +191,8 @@ export type ArtworkGroupByOutputType = {
   imageUrl: string
   isFeatured: boolean
   isPublished: boolean
+  status: $Enums.ArtworkStatus
+  creatorName: string | null
   createdAt: Date
   updatedAt: Date
   _count: ArtworkCountAggregateOutputType | null
@@ -212,6 +226,8 @@ export type ArtworkWhereInput = {
   imageUrl?: Prisma.StringFilter<"Artwork"> | string
   isFeatured?: Prisma.BoolFilter<"Artwork"> | boolean
   isPublished?: Prisma.BoolFilter<"Artwork"> | boolean
+  status?: Prisma.EnumArtworkStatusFilter<"Artwork"> | $Enums.ArtworkStatus
+  creatorName?: Prisma.StringNullableFilter<"Artwork"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Artwork"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Artwork"> | Date | string
   tags?: Prisma.ArtworkTagListRelationFilter
@@ -225,6 +241,8 @@ export type ArtworkOrderByWithRelationInput = {
   imageUrl?: Prisma.SortOrder
   isFeatured?: Prisma.SortOrder
   isPublished?: Prisma.SortOrder
+  status?: Prisma.SortOrder
+  creatorName?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   tags?: Prisma.ArtworkTagOrderByRelationAggregateInput
@@ -241,6 +259,8 @@ export type ArtworkWhereUniqueInput = Prisma.AtLeast<{
   imageUrl?: Prisma.StringFilter<"Artwork"> | string
   isFeatured?: Prisma.BoolFilter<"Artwork"> | boolean
   isPublished?: Prisma.BoolFilter<"Artwork"> | boolean
+  status?: Prisma.EnumArtworkStatusFilter<"Artwork"> | $Enums.ArtworkStatus
+  creatorName?: Prisma.StringNullableFilter<"Artwork"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Artwork"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Artwork"> | Date | string
   tags?: Prisma.ArtworkTagListRelationFilter
@@ -254,6 +274,8 @@ export type ArtworkOrderByWithAggregationInput = {
   imageUrl?: Prisma.SortOrder
   isFeatured?: Prisma.SortOrder
   isPublished?: Prisma.SortOrder
+  status?: Prisma.SortOrder
+  creatorName?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.ArtworkCountOrderByAggregateInput
@@ -272,6 +294,8 @@ export type ArtworkScalarWhereWithAggregatesInput = {
   imageUrl?: Prisma.StringWithAggregatesFilter<"Artwork"> | string
   isFeatured?: Prisma.BoolWithAggregatesFilter<"Artwork"> | boolean
   isPublished?: Prisma.BoolWithAggregatesFilter<"Artwork"> | boolean
+  status?: Prisma.EnumArtworkStatusWithAggregatesFilter<"Artwork"> | $Enums.ArtworkStatus
+  creatorName?: Prisma.StringNullableWithAggregatesFilter<"Artwork"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Artwork"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Artwork"> | Date | string
 }
@@ -284,6 +308,8 @@ export type ArtworkCreateInput = {
   imageUrl: string
   isFeatured?: boolean
   isPublished?: boolean
+  status?: $Enums.ArtworkStatus
+  creatorName?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   tags?: Prisma.ArtworkTagCreateNestedManyWithoutArtworkInput
@@ -297,6 +323,8 @@ export type ArtworkUncheckedCreateInput = {
   imageUrl: string
   isFeatured?: boolean
   isPublished?: boolean
+  status?: $Enums.ArtworkStatus
+  creatorName?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   tags?: Prisma.ArtworkTagUncheckedCreateNestedManyWithoutArtworkInput
@@ -310,6 +338,8 @@ export type ArtworkUpdateInput = {
   imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
   isFeatured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isPublished?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumArtworkStatusFieldUpdateOperationsInput | $Enums.ArtworkStatus
+  creatorName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tags?: Prisma.ArtworkTagUpdateManyWithoutArtworkNestedInput
@@ -323,6 +353,8 @@ export type ArtworkUncheckedUpdateInput = {
   imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
   isFeatured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isPublished?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumArtworkStatusFieldUpdateOperationsInput | $Enums.ArtworkStatus
+  creatorName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tags?: Prisma.ArtworkTagUncheckedUpdateManyWithoutArtworkNestedInput
@@ -336,6 +368,8 @@ export type ArtworkCreateManyInput = {
   imageUrl: string
   isFeatured?: boolean
   isPublished?: boolean
+  status?: $Enums.ArtworkStatus
+  creatorName?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -348,6 +382,8 @@ export type ArtworkUpdateManyMutationInput = {
   imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
   isFeatured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isPublished?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumArtworkStatusFieldUpdateOperationsInput | $Enums.ArtworkStatus
+  creatorName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -360,6 +396,8 @@ export type ArtworkUncheckedUpdateManyInput = {
   imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
   isFeatured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isPublished?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumArtworkStatusFieldUpdateOperationsInput | $Enums.ArtworkStatus
+  creatorName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -372,6 +410,8 @@ export type ArtworkCountOrderByAggregateInput = {
   imageUrl?: Prisma.SortOrder
   isFeatured?: Prisma.SortOrder
   isPublished?: Prisma.SortOrder
+  status?: Prisma.SortOrder
+  creatorName?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -384,6 +424,8 @@ export type ArtworkMaxOrderByAggregateInput = {
   imageUrl?: Prisma.SortOrder
   isFeatured?: Prisma.SortOrder
   isPublished?: Prisma.SortOrder
+  status?: Prisma.SortOrder
+  creatorName?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -396,6 +438,8 @@ export type ArtworkMinOrderByAggregateInput = {
   imageUrl?: Prisma.SortOrder
   isFeatured?: Prisma.SortOrder
   isPublished?: Prisma.SortOrder
+  status?: Prisma.SortOrder
+  creatorName?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -403,6 +447,10 @@ export type ArtworkMinOrderByAggregateInput = {
 export type ArtworkScalarRelationFilter = {
   is?: Prisma.ArtworkWhereInput
   isNot?: Prisma.ArtworkWhereInput
+}
+
+export type EnumArtworkStatusFieldUpdateOperationsInput = {
+  set?: $Enums.ArtworkStatus
 }
 
 export type ArtworkCreateNestedOneWithoutTagsInput = {
@@ -427,6 +475,8 @@ export type ArtworkCreateWithoutTagsInput = {
   imageUrl: string
   isFeatured?: boolean
   isPublished?: boolean
+  status?: $Enums.ArtworkStatus
+  creatorName?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -439,6 +489,8 @@ export type ArtworkUncheckedCreateWithoutTagsInput = {
   imageUrl: string
   isFeatured?: boolean
   isPublished?: boolean
+  status?: $Enums.ArtworkStatus
+  creatorName?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -467,6 +519,8 @@ export type ArtworkUpdateWithoutTagsInput = {
   imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
   isFeatured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isPublished?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumArtworkStatusFieldUpdateOperationsInput | $Enums.ArtworkStatus
+  creatorName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -479,6 +533,8 @@ export type ArtworkUncheckedUpdateWithoutTagsInput = {
   imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
   isFeatured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isPublished?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumArtworkStatusFieldUpdateOperationsInput | $Enums.ArtworkStatus
+  creatorName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -522,6 +578,8 @@ export type ArtworkSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   imageUrl?: boolean
   isFeatured?: boolean
   isPublished?: boolean
+  status?: boolean
+  creatorName?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   tags?: boolean | Prisma.Artwork$tagsArgs<ExtArgs>
@@ -536,6 +594,8 @@ export type ArtworkSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exten
   imageUrl?: boolean
   isFeatured?: boolean
   isPublished?: boolean
+  status?: boolean
+  creatorName?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["artwork"]>
@@ -548,6 +608,8 @@ export type ArtworkSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
   imageUrl?: boolean
   isFeatured?: boolean
   isPublished?: boolean
+  status?: boolean
+  creatorName?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["artwork"]>
@@ -560,11 +622,13 @@ export type ArtworkSelectScalar = {
   imageUrl?: boolean
   isFeatured?: boolean
   isPublished?: boolean
+  status?: boolean
+  creatorName?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type ArtworkOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "title" | "slug" | "content" | "imageUrl" | "isFeatured" | "isPublished" | "createdAt" | "updatedAt", ExtArgs["result"]["artwork"]>
+export type ArtworkOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "title" | "slug" | "content" | "imageUrl" | "isFeatured" | "isPublished" | "status" | "creatorName" | "createdAt" | "updatedAt", ExtArgs["result"]["artwork"]>
 export type ArtworkInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   tags?: boolean | Prisma.Artwork$tagsArgs<ExtArgs>
   _count?: boolean | Prisma.ArtworkCountOutputTypeDefaultArgs<ExtArgs>
@@ -585,6 +649,8 @@ export type $ArtworkPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     imageUrl: string
     isFeatured: boolean
     isPublished: boolean
+    status: $Enums.ArtworkStatus
+    creatorName: string | null
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["artwork"]>
@@ -1018,6 +1084,8 @@ export interface ArtworkFieldRefs {
   readonly imageUrl: Prisma.FieldRef<"Artwork", 'String'>
   readonly isFeatured: Prisma.FieldRef<"Artwork", 'Boolean'>
   readonly isPublished: Prisma.FieldRef<"Artwork", 'Boolean'>
+  readonly status: Prisma.FieldRef<"Artwork", 'ArtworkStatus'>
+  readonly creatorName: Prisma.FieldRef<"Artwork", 'String'>
   readonly createdAt: Prisma.FieldRef<"Artwork", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Artwork", 'DateTime'>
 }
@@ -1216,6 +1284,11 @@ export type ArtworkFindManyArgs<ExtArgs extends runtime.Types.Extensions.Interna
    * Skip the first `n` Artworks.
    */
   skip?: number
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+   * 
+   * Filter by unique combinations of Artworks.
+   */
   distinct?: Prisma.ArtworkScalarFieldEnum | Prisma.ArtworkScalarFieldEnum[]
 }
 

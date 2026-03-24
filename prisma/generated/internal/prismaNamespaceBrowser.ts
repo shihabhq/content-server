@@ -103,6 +103,8 @@ export const ArtworkScalarFieldEnum = {
   imageUrl: 'imageUrl',
   isFeatured: 'isFeatured',
   isPublished: 'isPublished',
+  status: 'status',
+  creatorName: 'creatorName',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const

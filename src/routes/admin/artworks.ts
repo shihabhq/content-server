@@ -15,6 +15,8 @@ const artworkSchema = z.object({
   isFeatured: z.boolean().optional().default(false),
   isPublished: z.boolean().optional().default(true),
   tagIds: z.array(z.string()).optional().default([]),
+  creatorName: z.string().optional(),
+  status: z.enum(["PUBLISHED", "PENDING"]).optional(),
 });
 
 async function compressImage(buffer: Buffer): Promise<Buffer> {
@@ -45,15 +47,20 @@ router.get("/", async (req: Request, res: Response) => {
   try {
     const page = parseInt(req.query.page as string) || 1;
     const pageSize = parseInt(req.query.pageSize as string) || 20;
+    const status = req.query.status as "PUBLISHED" | "PENDING" | undefined;
+
+    const where: any = {};
+    if (status) where.status = status;
 
     const [artworks, total] = await Promise.all([
       prisma.artwork.findMany({
+        where,
         orderBy: { createdAt: "desc" },
         skip: (page - 1) * pageSize,
         take: pageSize,
         include: { tags: { include: { tag: true } } },
       }),
-      prisma.artwork.count(),
+      prisma.artwork.count({ where }),
     ]);
 
     res.json({ data: artworks, total, page, pageSize });
@@ -132,10 +139,12 @@ router.post(
           imageUrl: urlData.publicUrl,
           isFeatured: parsed.data.isFeatured,
           isPublished: parsed.data.isPublished,
+          creatorName: parsed.data.creatorName,
+          status: parsed.data.status ?? "PUBLISHED",
           tags: {
             create: parsed.data.tagIds.map((tagId) => ({ tagId })),
           },
-        },
+        } as any,
         include: { tags: { include: { tag: true } } },
       });
 
@@ -214,12 +223,16 @@ router.put(
           ...(parsed.data.isPublished !== undefined && {
             isPublished: parsed.data.isPublished,
           }),
+          ...(parsed.data.creatorName !== undefined && {
+            creatorName: parsed.data.creatorName,
+          }),
+          ...(parsed.data.status && { status: parsed.data.status }),
           ...(parsed.data.tagIds && {
             tags: {
               create: parsed.data.tagIds.map((tagId) => ({ tagId })),
             },
           }),
-        },
+        } as any,
         include: { tags: true },
       });
 

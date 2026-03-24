@@ -66,7 +66,7 @@ router.get("/", async (req: Request, res: Response) => {
 // GET /api/videos/:slug
 router.get("/:slug", async (req: Request, res: Response) => {
   try {
-    const video = await prisma.video.findUnique({
+    const video = await prisma.video.findFirst({
       where: {
         slug: req.params.slug as string,
         status: "PUBLISHED",
@@ -88,7 +88,7 @@ router.get("/:slug", async (req: Request, res: Response) => {
 // GET /api/videos/:slug/suggestions
 router.get("/:slug/suggestions", async (req: Request, res: Response) => {
   try {
-    const current = await prisma.video.findUnique({
+    const current = await prisma.video.findFirst({
       where: {
         slug: req.params.slug as string,
         status: "PUBLISHED",
@@ -106,6 +106,7 @@ router.get("/:slug/suggestions", async (req: Request, res: Response) => {
     const suggestions = await prisma.video.findMany({
       where: {
         id: { not: current.id },
+        status: "PUBLISHED",
         ...(tagIds.length > 0 && {
           tags: { some: { tagId: { in: tagIds } } },
         }),
@@ -136,7 +137,7 @@ router.get("/:slug/suggestions", async (req: Request, res: Response) => {
 // POST /api/videos/:slug/view
 router.post("/:slug/view", async (req: Request, res: Response) => {
   try {
-    await prisma.video.update({
+    await prisma.video.updateMany({
       where: { slug: req.params.slug as string, status: "PUBLISHED" },
       data: { viewCount: { increment: 1 } },
     });

@@ -167,6 +167,23 @@ export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedDateTimeFilter<$PrismaModel>
 }
 
+export type EnumArtworkStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ArtworkStatus | Prisma.EnumArtworkStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ArtworkStatus[] | Prisma.ListEnumArtworkStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ArtworkStatus[] | Prisma.ListEnumArtworkStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumArtworkStatusFilter<$PrismaModel> | $Enums.ArtworkStatus
+}
+
+export type EnumArtworkStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ArtworkStatus | Prisma.EnumArtworkStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ArtworkStatus[] | Prisma.ListEnumArtworkStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ArtworkStatus[] | Prisma.ListEnumArtworkStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumArtworkStatusWithAggregatesFilter<$PrismaModel> | $Enums.ArtworkStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumArtworkStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumArtworkStatusFilter<$PrismaModel>
+}
+
 export type NestedStringFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -331,6 +348,23 @@ export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedDateTimeFilter<$PrismaModel>
   _max?: Prisma.NestedDateTimeFilter<$PrismaModel>
+}
+
+export type NestedEnumArtworkStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ArtworkStatus | Prisma.EnumArtworkStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ArtworkStatus[] | Prisma.ListEnumArtworkStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ArtworkStatus[] | Prisma.ListEnumArtworkStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumArtworkStatusFilter<$PrismaModel> | $Enums.ArtworkStatus
+}
+
+export type NestedEnumArtworkStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ArtworkStatus | Prisma.EnumArtworkStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ArtworkStatus[] | Prisma.ListEnumArtworkStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ArtworkStatus[] | Prisma.ListEnumArtworkStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumArtworkStatusWithAggregatesFilter<$PrismaModel> | $Enums.ArtworkStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumArtworkStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumArtworkStatusFilter<$PrismaModel>
 }
 
 
